@@ -60,8 +60,7 @@ class SwipeDeckScreen extends StatelessWidget {
                   SizedBox(height: 16),
                   Text(
                     'All Clean!',
-                    style: TextStyle(
-                        fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
