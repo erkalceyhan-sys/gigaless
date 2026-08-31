@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:photo_manager/photo_manager.dart';
 import 'package:photo_manager_image_provider/photo_manager_image_provider.dart';
 import '../../../core/l10n/app_strings.dart';
 import '../../../core/theme/app_theme.dart';
@@ -18,7 +19,7 @@ class PurgeReviewScreen extends StatelessWidget {
       body: Consumer<SwipeDeckController>(
         builder: (context, controller, child) {
           if (controller.toTrash.isEmpty) {
-            return Center(
+            return const Center(
               child: Text(
                 'No items marked for deletion',
                 style: TextStyle(color: AppColors.textDarkSecondary),
@@ -64,9 +65,10 @@ class PurgeReviewScreen extends StatelessWidget {
                         ],
                       ),
                       Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 14, vertical: 8),
                         decoration: BoxDecoration(
-                          color: AppColors.trashCoral.withOpacity(0.12),
+                          color: AppColors.trashCoral.withValues(alpha: 0.12),
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Text(
@@ -85,7 +87,8 @@ class PurgeReviewScreen extends StatelessWidget {
                 Expanded(
                   child: GridView.builder(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
                       crossAxisSpacing: 8,
                       mainAxisSpacing: 8,
@@ -111,7 +114,7 @@ class PurgeReviewScreen extends StatelessWidget {
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 6, vertical: 2),
                                 decoration: BoxDecoration(
-                                  color: Colors.black.withOpacity(0.7),
+                                  color: Colors.black.withValues(alpha: 0.7),
                                   borderRadius: BorderRadius.circular(6),
                                 ),
                                 child: Text(
@@ -154,7 +157,8 @@ class PurgeReviewScreen extends StatelessWidget {
                               ? null
                               : () async {
                                   final freedBytes = controller.totalTrashBytes;
-                                  final success = await controller.commitPurge();
+                                  final success =
+                                      await controller.commitPurge();
                                   if (success && context.mounted) {
                                     Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
@@ -173,7 +177,8 @@ class PurgeReviewScreen extends StatelessWidget {
                             elevation: 0,
                           ),
                           child: controller.isLoading
-                              ? const CircularProgressIndicator(color: Colors.white)
+                              ? const CircularProgressIndicator(
+                                  color: Colors.white)
                               : Text(
                                   AppStrings.confirmPurge,
                                   style: const TextStyle(

@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 enum AppLanguage {
   en,
   de,
@@ -184,12 +182,17 @@ class AppStrings {
       });
 
   static String get safeNotice => _get({
-        AppLanguage.en: 'Safe Deletion: Items move to your system Recently Deleted album. You can restore them anytime within 30 days.',
-        AppLanguage.de: 'Sicheres Löschen: Fotos werden in "Zuletzt gelöscht" verschoben und können 30 Tage lang wiederhergestellt werden.',
-        AppLanguage.es: 'Eliminación segura: Los elementos van a "Eliminados recientemente". Puedes restaurarlos en 30 días.',
-        AppLanguage.fr: 'Suppression sécurisée : Déplacé vers "Supprimés récemment". Restaurable pendant 30 jours.',
+        AppLanguage.en:
+            'Safe Deletion: Items move to your system Recently Deleted album. You can restore them anytime within 30 days.',
+        AppLanguage.de:
+            'Sicheres Löschen: Fotos werden in "Zuletzt gelöscht" verschoben und können 30 Tage lang wiederhergestellt werden.',
+        AppLanguage.es:
+            'Eliminación segura: Los elementos van a "Eliminados recientemente". Puedes restaurarlos en 30 días.',
+        AppLanguage.fr:
+            'Suppression sécurisée : Déplacé vers "Supprimés récemment". Restaurable pendant 30 jours.',
         AppLanguage.ja: '安心の安全削除：写真は「最近削除した項目」に移動します。30日以内であれば復元可能です。',
-        AppLanguage.tr: 'Güvenli Silme: Fotoğraflar sistemin "Son Silinenler" klasörüne taşınır. 30 gün içinde istediğiniz an geri yükleyebilirsiniz.',
+        AppLanguage.tr:
+            'Güvenli Silme: Fotoğraflar sistemin "Son Silinenler" klasörüne taşınır. 30 gün içinde istediğiniz an geri yükleyebilirsiniz.',
       });
 
   // Success / Milestone
@@ -231,12 +234,17 @@ class AppStrings {
       });
 
   static String get permissionDesc => _get({
-        AppLanguage.en: 'Gigaless works 100% locally on your device. Your photos are never uploaded to any server.',
-        AppLanguage.de: 'Gigaless funktioniert 100% lokal auf deinem Gerät. Keine Fotos werden hochgeladen.',
-        AppLanguage.es: 'Gigaless funciona 100% en tu dispositivo. Tus fotos nunca se suben a ningún servidor.',
-        AppLanguage.fr: 'Gigaless fonctionne à 100% localement. Aucune photo n\'est envoyée sur un serveur.',
+        AppLanguage.en:
+            'Gigaless works 100% locally on your device. Your photos are never uploaded to any server.',
+        AppLanguage.de:
+            'Gigaless funktioniert 100% lokal auf deinem Gerät. Keine Fotos werden hochgeladen.',
+        AppLanguage.es:
+            'Gigaless funciona 100% en tu dispositivo. Tus fotos nunca se suben a ningún servidor.',
+        AppLanguage.fr:
+            'Gigaless fonctionne à 100% localement. Aucune photo n\'est envoyée sur un serveur.',
         AppLanguage.ja: 'Gigalessは完全に端末内で動作します。写真が外部サーバーに送信されることは一切ありません。',
-        AppLanguage.tr: 'Gigaless %100 cihazınızın üzerinde yerel çalışır. Fotoğraflarınız asla hiçbir sunucuya yüklenmez.',
+        AppLanguage.tr:
+            'Gigaless %100 cihazınızın üzerinde yerel çalışır. Fotoğraflarınız asla hiçbir sunucuya yüklenmez.',
       });
 
   static String get grantPermission => _get({

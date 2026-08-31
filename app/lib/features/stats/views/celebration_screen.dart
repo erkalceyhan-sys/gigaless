@@ -26,7 +26,7 @@ class CelebrationScreen extends StatelessWidget {
                 width: 90,
                 height: 90,
                 decoration: BoxDecoration(
-                  color: AppColors.keepEmerald.withOpacity(0.15),
+                  color: AppColors.keepEmerald.withValues(alpha: 0.15),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
@@ -55,9 +55,9 @@ class CelebrationScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 8),
-              Text(
+              const Text(
                 'Moved to Recently Deleted album.',
-                style: const TextStyle(
+                style: TextStyle(
                   color: AppColors.textDarkSecondary,
                   fontSize: 14,
                 ),
@@ -85,7 +85,8 @@ class CelebrationScreen extends StatelessWidget {
                     ),
                   ),
                   style: OutlinedButton.styleFrom(
-                    side: const BorderSide(color: AppColors.primaryBlue, width: 1.5),
+                    side: const BorderSide(
+                        color: AppColors.primaryBlue, width: 1.5),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),

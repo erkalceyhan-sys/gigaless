@@ -1,31 +1,49 @@
-name: Build & Deploy iOS TestFlight
+name: Deploy to TestFlight
 
 on:
-  workflow_dispatch:
   push:
-    tags:
-      - 'v*'
+    branches:
+      - main
+      - master
+  workflow_dispatch:
 
 jobs:
-  deploy_ios:
+  deploy:
+    name: Build & Upload to TestFlight
     runs-on: macos-14
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Set up Java JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.24.0'
+          flutter-version: '3.44.8'
           channel: 'stable'
-          cache: true
 
       - name: Install Dependencies
         run: |
           cd app
           flutter pub get
 
-      - name: Build iOS No-Codesign
+      - name: Set up Ruby & Install Gemfile Dependencies
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          working-directory: 'app/ios'
+          bundler-cache: true
+
+      - name: Build & Deploy to TestFlight via Fastlane
+        env:
+          MATCH_GIT_TOKEN: ${{ secrets.MATCH_GIT_TOKEN }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
         run: |
-          cd app
-          flutter build ios --release --no-codesign
+          cd app/ios
+          bundle exec fastlane ios beta

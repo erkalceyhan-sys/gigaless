@@ -18,7 +18,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _totalSavedBytes = 0;
   bool _hasPermission = false;
-  bool _isCheckingPermission = true;
 
   @override
   void initState() {
@@ -33,7 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
       setState(() {
         _totalSavedBytes = saved;
         _hasPermission = hasPerm;
-        _isCheckingPermission = false;
       });
     }
   }
@@ -49,11 +47,13 @@ class _HomeScreenState extends State<HomeScreen> {
     final controller = context.read<SwipeDeckController>();
     controller.setLoading(true);
 
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (_) => SwipeDeckScreen(category: category),
-      ),
-    ).then((_) => _loadInitialState());
+    Navigator.of(context)
+        .push(
+          MaterialPageRoute(
+            builder: (_) => SwipeDeckScreen(category: category),
+          ),
+        )
+        .then((_) => _loadInitialState());
 
     final items = await PhotoService.fetchCategoryItems(category: category);
     controller.setItems(items);
@@ -221,7 +221,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: accentColor.withOpacity(0.12),
+                color: accentColor.withValues(alpha: 0.12),
                 borderRadius: BorderRadius.circular(14),
               ),
               child: Icon(icon, color: accentColor, size: 24),

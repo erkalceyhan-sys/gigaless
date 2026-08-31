@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/media_item.dart';
+import '../services/photo_service.dart';
 import '../../../core/services/ad_service.dart';
 import '../../../core/services/storage_service.dart';
 
@@ -22,7 +23,8 @@ class SwipeDeckController extends ChangeNotifier {
   bool get hasMore => _currentIndex < _items.length;
   bool get canUndo => _history.isNotEmpty;
 
-  int get totalTrashBytes => _toTrash.fold(0, (sum, item) => sum + item.sizeInBytes);
+  int get totalTrashBytes =>
+      _toTrash.fold(0, (sum, item) => sum + item.sizeInBytes);
 
   String get formattedTrashSize {
     final bytes = totalTrashBytes;

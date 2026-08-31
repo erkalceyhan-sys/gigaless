@@ -6,7 +6,7 @@ class AppColors {
   static const Color darkCard = Color(0xFF14161A);
   static const Color darkCardBorder = Color(0xFF22262E);
   static const Color darkSurface = Color(0xFF1B1E24);
-  
+
   // Pearl Light Theme
   static const Color lightBackground = Color(0xFFF7F8FA);
   static const Color lightCard = Color(0xFFFFFFFF);

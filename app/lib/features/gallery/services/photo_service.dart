@@ -61,11 +61,14 @@ class PhotoService {
           fileSize = await file.length();
         } else {
           // Fallback approximate estimation if file descriptor isn't loaded immediately
-          fileSize = (entity.width * entity.height * (entity.type == AssetType.video ? 4 : 2));
+          fileSize = (entity.width *
+              entity.height *
+              (entity.type == AssetType.video ? 4 : 2));
         }
 
         // For large videos filter only 50MB+
-        if (category == CleanupCategory.largeVideos && fileSize < 50 * 1024 * 1024) {
+        if (category == CleanupCategory.largeVideos &&
+            fileSize < 50 * 1024 * 1024) {
           continue;
         }
 

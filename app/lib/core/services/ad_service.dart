@@ -6,11 +6,15 @@ class AdService {
   static bool _isInterstitialLoading = false;
 
   // Official Google AdMob Test Ad Unit IDs
-  static const String testBannerIdAndroid = 'ca-app-pub-3940256099942544/6300978111';
-  static const String testBannerIdIOS = 'ca-app-pub-3940256099942544/2934735716';
+  static const String testBannerIdAndroid =
+      'ca-app-pub-3940256099942544/6300978111';
+  static const String testBannerIdIOS =
+      'ca-app-pub-3940256099942544/2934735716';
 
-  static const String testInterstitialIdAndroid = 'ca-app-pub-3940256099942544/1033173712';
-  static const String testInterstitialIdIOS = 'ca-app-pub-3940256099942544/4411468910';
+  static const String testInterstitialIdAndroid =
+      'ca-app-pub-3940256099942544/1033173712';
+  static const String testInterstitialIdIOS =
+      'ca-app-pub-3940256099942544/4411468910';
 
   static Future<void> initialize() async {
     try {
@@ -36,7 +40,8 @@ class AdService {
         onAdLoaded: (ad) {
           _interstitialAd = ad;
           _isInterstitialLoading = false;
-          _interstitialAd!.fullScreenContentCallback = FullScreenContentCallback(
+          _interstitialAd!.fullScreenContentCallback =
+              FullScreenContentCallback(
             onAdDismissedFullScreenContent: (ad) {
               ad.dispose();
               _interstitialAd = null;

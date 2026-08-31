@@ -8,7 +8,7 @@ import 'features/gallery/views/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Set portrait orientation
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
